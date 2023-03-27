@@ -9,7 +9,7 @@ class Robot:
         return f"({self.nama} - {self.health} HP)"
 
     def lakukan_aksi(self, other):
-        print(f"\n{self.nama} akunyerang sebanyak {self.damage} DMG")
+        print(f"\n{self.nama} menyerang sebanyak {self.damage} DMG")
         other.terima_aksi(self.damage)
 
     def terima_aksi(self, damageVill):
@@ -18,7 +18,7 @@ class Robot:
         else:
             self.health -= damageVill
 
-    @classakuthod
+    @classmethod
     def main(cls):
         cls.jumlah_turn += 1
         return cls.jumlah_turn
@@ -50,7 +50,7 @@ class Alphasetia(Robot):
     def lakukan_aksi(self, other):
         if Robot.jumlah_turn % 2 == 0:
             self.health += 4000
-            print(f"\n{self.nama} akunambah darah sebanyak 4000 HP")
+            print(f"\n{self.nama} menambah darah sebanyak 4000 HP")
 
         super().lakukan_aksi(other)
     
@@ -67,7 +67,7 @@ class Lecalicus(Robot):
             self.health += 7000
             self.damage *= 2
             Lecalicus.cek = True
-            print(f"\n{self.nama} akunambah darah sebanyak 7000 HP")
+            print(f"\n{self.nama} menambah darah sebanyak 7000 HP")
         else:
             Lecalicus.cek = False
 
@@ -139,6 +139,6 @@ while hero.health > 0 and vill.health > 0:
             print("Seri")
 
 if hero.health > vill.health:
-    print(f"Robot anda ({hero.nama}) akunang")
+    print(f"Robot anda ({hero.nama}) menang")
 else:
-    print(f"Robot lawan ({vill.nama}) akunang")
+    print(f"Robot lawan ({vill.nama}) menang")
